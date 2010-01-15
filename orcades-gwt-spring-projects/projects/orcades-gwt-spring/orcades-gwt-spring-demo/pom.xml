@@ -58,7 +58,7 @@
 				<version>2.1-beta-1</version>
 				<configuration>
 					<!-- TOOGLE this comment to see the issue -->
-<!--					<warSourceDirectory>war</warSourceDirectory>-->
+					<!--					<warSourceDirectory>war</warSourceDirectory>-->
 
 
 
@@ -70,29 +70,46 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.7</version>
 				<configuration>
-					
+
 					<wtpapplicationxml>true</wtpapplicationxml>
 					<wtpversion>2.0</wtpversion>
 					<additionalBuildcommands>
-					 <buildcommand>com.google.gdt.eclipse.core.webAppProjectValidator</buildcommand>
-					 <buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
-					 <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+						<buildcommand>com.google.gdt.eclipse.core.webAppProjectValidator</buildcommand>
+						<buildcommand>com.google.gwt.eclipse.core.gwtProjectValidator</buildcommand>
+						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
 					</additionalBuildcommands>
 					<additionalProjectnatures>
-					 <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					 <projectnature>org.eclipse.wst.common.modulecore.ModuleCoreNature</projectnature>
-					 <projectnature>com.google.gdt.eclipse.core.webAppNature</projectnature>
-					 <projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+						<projectnature>org.eclipse.wst.common.modulecore.ModuleCoreNature</projectnature>
+						<projectnature>com.google.gdt.eclipse.core.webAppNature</projectnature>
+						<projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
 					</additionalProjectnatures>
 					<classpathContainers>
 						<classpathContainer>org.eclipse.jst.j2ee.internal.web.container</classpathContainer>
 						<classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
 					</classpathContainers>
+
+					<additionalConfig>
+						<file>
+							<name>war/WEB-INF/web.xml</name>
+							<content>
+<![CDATA[<!-- This file is there just to satisfy GEP (GWT Eclipse Plugin)  -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:t="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+</web-app>]]>
+							</content>
+						</file>
+
+					</additionalConfig>
+
 				</configuration>
 			</plugin>
 
 
-			
+
 		</plugins>
 	</build>
 
@@ -106,17 +123,17 @@
 			<scope>test</scope>
 		</dependency>
 
-				<dependency>
-					<groupId>com.google.gwt</groupId>
-					<artifactId>gwt-user</artifactId>
-					<version>${gwt.version}</version>
-					<scope>provided</scope>
-				</dependency>
-				<dependency>
-					<groupId>com.google.gwt</groupId>
-					<artifactId>gwt-servlet</artifactId>
-					<version>${gwt.version}</version>
-				</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt.version}</version>
+		</dependency>
 
 
 
