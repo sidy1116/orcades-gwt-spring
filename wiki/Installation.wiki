@@ -31,8 +31,8 @@ To import and use those project your eclips install must have:
   * svn support
   * maven support (m2eclipse)
   * webapp support (WTP)
-  * GWT support GEP
-  * Spring support STS
+  * GWT support (GEP)
+  * Spring support (STS)
 
 Just use :
 File >> Import >> Maven existing project
