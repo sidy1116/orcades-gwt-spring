@@ -43,4 +43,4 @@ Becarefull to import only leaf projects:
   * orcades-gwt-spring-dispatch-security
   * orcades-gwt-spring-demo
 
-Not the parent project orcades-gwt-spring
+*Not* the parent project orcades-gwt-spring
