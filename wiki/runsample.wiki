@@ -8,7 +8,7 @@ With or without GWT compiled code.
 
 = Details =
 
-Ensure that in the Maven depedencies are checked in 
+Ensure that in the Maven dependencies are checked in 
 
 Project properties >> JEE Module dependencies 
 
