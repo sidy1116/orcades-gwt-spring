@@ -45,6 +45,9 @@ Becarefull to import only leaf projects:
 
 *Not* the parent project orcades-gwt-spring
 
+<font color="red">*** Important step ***</font>
+
+To deploy GWT compilation file in WTP module:
 
 In the project orcades-gwt-spring-demo
 
