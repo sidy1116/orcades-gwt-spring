@@ -75,7 +75,7 @@ public class SpringDefaultDispatch implements Dispatch {
 		 */
 		private void rollback() throws ActionException {
 			for (int i = actionResults.size() - 1; i >= 0; i--) {
-				ActionResult<?, ?> actionResult = actionResults.get(i);
+				ActionResult actionResult = actionResults.get(i);
 				rollback(actionResult);
 			}
 		}

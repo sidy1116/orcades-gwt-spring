@@ -92,18 +92,22 @@
 					<additionalConfig>
 						<file>
 							<name>war/WEB-INF/web.xml</name>
-							<content>
-<![CDATA[<!-- This file is there just to satisfy GEP (GWT Eclipse Plugin)  -->
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:t="http://java.sun.com/xml/ns/javaee"
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-</web-app>]]>
-							</content>
+<!--							<content>-->
+<!--<![CDATA[ This file is there just to satisfy GEP (GWT Eclipse Plugin)  -->
+<!--<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:t="http://java.sun.com/xml/ns/javaee"-->
+<!--	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"-->
+<!--	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"-->
+<!--	id="WebApp_ID" version="2.5">-->
+<!--</web-app>]]>-->
+<!--							</content>-->
+    
+       <url>file:${basedir}/src/main/webapp/WEB-INF/web.xml</url>
+     
 						</file>
 
 					</additionalConfig>
+					
 
 				</configuration>
 			</plugin>
