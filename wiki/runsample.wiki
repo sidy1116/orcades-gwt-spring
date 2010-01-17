@@ -8,8 +8,16 @@ With or without GWT compiled code.
 
 = Details =
 
+
 Ensure that in the Maven dependencies are checked in 
 
 Project properties >> JEE Module dependencies 
 
 Then you should able to deploy the application has a wtp module.
+
+  * Start your WTP server instance.
+
+The start the gwt module without the embeded server.
+
+And thats it you should be able to access to http://localhost:8080/orcades-gwt-spring-demo/search.html?gwt.codesvr=127.0.0.1:9997
+
