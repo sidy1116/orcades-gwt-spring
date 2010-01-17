@@ -14,7 +14,7 @@ When the server side code is not using the embeded jetty server, it's ok.
 
 = Details =
 
-Launch the GWT compilation with GEP.
+Launch the GWT compilation with GEP. (refresh workspace after).
 
 Ensure that in the Maven dependencies are checked in 
 
@@ -29,3 +29,6 @@ Then you should able to deploy the application has a wtp module.
 And thats it you should be able to access to 
   * http://localhost:8080/orcades-gwt-spring-demo/search.html to use the compiled code.
   * http://localhost:8080/orcades-gwt-spring-demo/search.html?gwt.codesvr=127.0.0.1:9997 to use the dev mode.
+
+
+Enjoy
