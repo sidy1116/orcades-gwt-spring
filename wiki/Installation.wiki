@@ -28,19 +28,19 @@ To build and install in your repo:
 = Import project into eclipse =
 
 To import and use those project your eclips install must have:
-* svn support
-* maven support (m2eclipse)
-* webapp support (WTP)
-* GWT support GEP
-* Spring support STS
+  * svn support
+  * maven support (m2eclipse)
+  * webapp support (WTP)
+  * GWT support GEP
+  * Spring support STS
 
 Just use :
 File >> Import >> Maven existing project
 
 Becarefull to import only leaf projects:
-* orcades-gwt-spring-handler
-* orcades-gwt-spring-dispatch
-* orcades-gwt-spring-dispatch-security
-* orcades-gwt-spring-demo
+  * orcades-gwt-spring-handler
+  * orcades-gwt-spring-dispatch
+  * orcades-gwt-spring-dispatch-security
+  * orcades-gwt-spring-demo
 
 Not the parent project orcades-gwt-spring
