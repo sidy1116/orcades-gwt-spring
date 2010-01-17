@@ -54,3 +54,5 @@ In the project orcades-gwt-spring-demo
 Edit the /orcades-gwt-spring-demo/.settings/org.eclipse.wst.common.component file:
 
 add {{{<wb-resource deploy-path="/search" source-path="war/search"/>}}}
+
+This WTP customization should be handled by an eclipse plugin to synchronize as soon as module are added remove ...
