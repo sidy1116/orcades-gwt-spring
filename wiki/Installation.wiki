@@ -14,4 +14,10 @@ There a are just some dependencies to provide, because some project are not avai
 
 checkoup the whole project.
 
-$ROOT
+cd projects/orcades-gwt-spring
+
+To build eclipse metatdata (.project, .classpath and wtp descriptors )
+
+{{{mvn eclipse:clean eclipse:m2eclipse}}}
+
+mvn clean install
