@@ -1,0 +1,15 @@
+#summary To run the sample application.
+
+= Introduction =
+
+orcades-gwt-spring-demo project hold a sample application. To run in WTP server.
+With or without GWT compiled code.
+
+
+= Details =
+
+Ensure that in the Maven depedencies are checked in 
+
+Project properties >> JEE Module dependencies 
+
+Then you should able to deploy the application has a wtp module.
