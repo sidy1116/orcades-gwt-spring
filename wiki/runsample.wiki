@@ -14,12 +14,13 @@ When the server side code is not using the embeded jetty server, it's ok.
 
 = Details =
 
+Launch the GWT compilation with GEP.
 
 Ensure that in the Maven dependencies are checked in 
 
 Project properties >> JEE Module dependencies 
 
-Then you should able to deploy the application has a wtp module.
+Then you should able to deploy the application has a wtp module. 
 
   * Start your WTP server instance.
 
