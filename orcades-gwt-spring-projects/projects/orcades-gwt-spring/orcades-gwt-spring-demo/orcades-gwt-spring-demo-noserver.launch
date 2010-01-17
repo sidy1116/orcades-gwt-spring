@@ -2,7 +2,6 @@
 <launchConfiguration type="com.google.gdt.eclipse.suite.webapp">
 <stringAttribute key="bad_container_name" value="\orcades-gwt-spring-demo-"/>
 <booleanAttribute key="com.google.gdt.eclipse.core.RUN_SERVER" value="false"/>
-<stringAttribute key="com.google.gwt.eclipse.core.LOG_LEVEL" value="TRACE"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/orcades-gwt-spring-demo"/>
 </listAttribute>
