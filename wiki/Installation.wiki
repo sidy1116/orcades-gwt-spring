@@ -1,0 +1,17 @@
+#Installation process
+
+= Introduction =
+
+Thanks to maven, it not a big issues ...
+There a are just some dependencies to provide, because some project are not available yet in public/central repositories:
+ * gin
+ * gwt-dispatch
+ * gwt-presenter
+
+
+
+= Details =
+
+checkoup the whole project.
+
+$ROOT
