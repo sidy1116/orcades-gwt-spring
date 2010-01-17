@@ -24,7 +24,7 @@ Then you should able to deploy the application has a wtp module.
 
   * Start your WTP server instance.
 
-  * The start the gwt module without the embeded server.
+  * The start the (GEP) gwt module without the embeded server.
 
 And thats it you should be able to access to 
   * http://localhost:8080/orcades-gwt-spring-demo/search.html to use the compiled code.
