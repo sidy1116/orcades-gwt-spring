@@ -4,6 +4,7 @@
 
 Thanks to maven, it's not a big issue ...
 There a are just some dependencies to provide, because some project are not available yet in public/central repositories:
+
  * gin
  * gwt-dispatch
  * gwt-presenter
@@ -25,3 +26,21 @@ To build and install in your repo:
 {{{mvn clean install}}}
 
 = Import project into eclipse =
+
+To import and use those project your eclips install must have:
+* svn support
+* maven support (m2eclipse)
+* webapp support (WTP)
+* GWT support GEP
+* Spring support STS
+
+Just use :
+File >> Import >> Maven existing project
+
+Becarefull to import only leaf projects:
+* orcades-gwt-spring-handler
+* orcades-gwt-spring-dispatch
+* orcades-gwt-spring-dispatch-security
+* orcades-gwt-spring-demo
+
+Not the parent project orcades-gwt-spring
