@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Thanks to maven, it not a big issues ...
+Thanks to maven, it's not a big issue ...
 There a are just some dependencies to provide, because some project are not available yet in public/central repositories:
  * gin
  * gwt-dispatch
@@ -10,7 +10,7 @@ There a are just some dependencies to provide, because some project are not avai
 
 
 
-= Details =
+= Build =
 
 checkoup the whole project.
 
@@ -20,4 +20,8 @@ To build eclipse metatdata (.project, .classpath and wtp descriptors )
 
 {{{mvn eclipse:clean eclipse:m2eclipse}}}
 
-mvn clean install
+To build and install in your repo:
+
+{{{mvn clean install}}}
+
+= Import project into eclipse =
