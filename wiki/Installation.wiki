@@ -13,7 +13,7 @@ There a are just some dependencies to provide, because some project are not avai
 
 = Build =
 
-checkoup the whole project.
+checkout the whole project.
 
 cd projects/orcades-gwt-spring
 
