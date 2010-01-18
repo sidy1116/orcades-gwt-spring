@@ -21,6 +21,10 @@ To build eclipse metatdata (.project, .classpath and wtp descriptors )
 
 {{{mvn eclipse:clean eclipse:m2eclipse}}}
 
+Or launch the eclipse launch ( Run >> Run Configuration )
+
+{{{orcades-gwt-spring-rebuild-eclipse-metadata}}} 
+
 To build and install in your repo:
 
 {{{mvn clean install}}}
