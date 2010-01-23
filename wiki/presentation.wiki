@@ -1,10 +1,10 @@
-#summary prentation
+#summary presentation
 
 = Introduction =
 
 This project contains some integration stuff for GWT && Spring.
 
- * orcades-gwt-spring-handler is a simple dispatcher for GWT remote service implementation.
+ * [orcades-gwt-spring-handler] is a simple dispatcher for GWT remote service implementation.
 
 
 = Details =
