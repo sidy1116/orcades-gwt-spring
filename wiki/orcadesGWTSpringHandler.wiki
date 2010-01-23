@@ -8,9 +8,9 @@ Very simple dispatcher, that need minimal(?) configuration.
 = Details =
 
 {{{
-<servlet>
-                <servlet-name>gwt-handler</servlet-name>
-                <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+         <servlet>
+                 <servlet-name>gwt-handler</servlet-name>
+                 <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
         </servlet>
 
 
