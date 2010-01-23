@@ -19,3 +19,5 @@ Very simple dispatcher, that need minimal(?) configuration.
                 <url-pattern>*.gwtrpc</url-pattern>
         </servlet-mapping>
 }}}
+
+request from *.gwtrpc are then dispatch to the first implementation found in the managed beans.
