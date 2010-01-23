@@ -2,12 +2,20 @@
 
 = Introduction =
 
-Add your content here.
+Very simple dispatcher, that need minimal(?) configuration.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+<servlet>
+                <servlet-name>gwt-handler</servlet-name>
+                <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+        </servlet>
+
+
+        <servlet-mapping>
+                <servlet-name>gwt-handler</servlet-name>
+                <url-pattern>*.gwtrpc</url-pattern>
+        </servlet-mapping>
+}}}
