@@ -20,4 +20,4 @@ Very simple dispatcher, that need minimal(?) configuration.
         </servlet-mapping>
 }}}
 
-request from \\*.gwtrpc are then dispatch to the first implementation found in the managed beans.
+request from \*.gwtrpc are then dispatch to the first implementation found in the managed beans.
