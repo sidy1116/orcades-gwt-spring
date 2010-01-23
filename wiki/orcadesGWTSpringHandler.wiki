@@ -22,6 +22,7 @@ Very simple dispatcher, that need minimal(?) configuration.
 
 request from `*`.gwtrpc are then dispatch to the first implementation of the GWT Requested service found in the managed beans.
 Jist add in your spring context.
+
 {{{<import resource="classpath:META-INF/net/orcades/gwt/spring/gwt-spring.xml" />}}}
 This declare the gwt-handler bean.
 
