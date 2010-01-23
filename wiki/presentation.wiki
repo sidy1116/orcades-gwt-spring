@@ -4,7 +4,7 @@
 
 This project contains some integration stuff for GWT && Spring.
 
- * [orcades-gwt-spring-handler orcades-gwt-spring-handler] is a simple dispatcher for GWT remote service implementation.
+ * [orcadesGWTSpringHandler orcadesGWTSpringHandler is a simple dispatcher for GWT remote service implementation.
 
 
 = Details =
