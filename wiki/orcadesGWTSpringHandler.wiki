@@ -1,4 +1,4 @@
-#summary Short introduction
+#summary A simple Spring dispatcher for GWT-RPC services.
 
 = Introduction =
 
