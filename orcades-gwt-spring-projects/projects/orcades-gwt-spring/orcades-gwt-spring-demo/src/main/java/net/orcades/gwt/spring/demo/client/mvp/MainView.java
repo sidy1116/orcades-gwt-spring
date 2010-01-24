@@ -13,14 +13,12 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-public class ZozoView extends Composite implements ZozoPresenter.Display {
+public class MainView extends Composite implements MainPresenter.Display {
 
 	
-	private TextBox naine;
+	private TextBox messageBox;
 	
 	private Button buttonSend;
-	
-	private PushButton login;
 	
 	private PushButton showList;
 
@@ -28,25 +26,25 @@ public class ZozoView extends Composite implements ZozoPresenter.Display {
 	private MyUI myUI;
 	
 	@Inject
-	public ZozoView(MyUI myUI) {
+	public MainView(MyUI myUI) {
 		final FlowPanel panel = new FlowPanel();
 		this.myUI = myUI;
 		initWidget(panel);
-		naine = new TextBox();
-		naine.setText("<3");
+		messageBox = new TextBox();
+		messageBox.setText("<3");
 		buttonSend = new Button("send now");
-		login = new PushButton("login");
+	
 		showList = new PushButton("show list");
-		panel.add(naine);
+		panel.add(messageBox);
 		panel.add(buttonSend);
-		panel.add(login);
+		
 		panel.add(showList);
 		panel.add(myUI);
 	}
 	
 	
-	public HasValue<String> loving() {
-		return naine;
+	public HasValue<String> messageBox() {
+		return messageBox;
 	}
 
 
@@ -70,9 +68,7 @@ public class ZozoView extends Composite implements ZozoPresenter.Display {
 	}
 
 
-	public HasClickHandlers getLogin() {
-		return login;
-	}
+	
 
 
 	public HasClickHandlers getShowList() {

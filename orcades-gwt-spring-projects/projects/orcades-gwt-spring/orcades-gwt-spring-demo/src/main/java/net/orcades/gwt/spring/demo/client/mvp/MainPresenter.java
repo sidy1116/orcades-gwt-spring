@@ -23,7 +23,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-public class ZozoPresenter extends BindedWidgetPresenter<ZozoPresenter.Display> {
+public class MainPresenter extends BindedWidgetPresenter<MainPresenter.Display> {
 
 	public static final Place PLACE = new Place("zozo");
 
@@ -34,20 +34,18 @@ public class ZozoPresenter extends BindedWidgetPresenter<ZozoPresenter.Display> 
 	
 	
 	@Inject
-	public ZozoPresenter(Display display, EventBus eventBus,
+	public MainPresenter(Display display, EventBus eventBus,
 			final DispatchAsync dispatcher) {
 		super(display, eventBus);
 		this.dispatcher = dispatcher;
 
-		//bind();
+		
 	}
 
 	public interface Display extends WidgetDisplay {
-		public HasValue<String> loving();
+		public HasValue<String> messageBox();
 
 		public HasClickHandlers getSend();
-
-		public HasClickHandlers getLogin();
 		
 		public HasClickHandlers getShowList();
 		
@@ -71,12 +69,7 @@ public class ZozoPresenter extends BindedWidgetPresenter<ZozoPresenter.Display> 
 			}
 		});
 
-		display.getLogin().addClickHandler(new ClickHandler() {
-
-			public void onClick(ClickEvent event) {
-				eventBus.fireEvent(new AuthorizationRequiredEvent("Login please"));
-			}
-		});
+		
 		
 		display.getShowList().addClickHandler(new ClickHandler() {
 			
@@ -99,7 +92,7 @@ public class ZozoPresenter extends BindedWidgetPresenter<ZozoPresenter.Display> 
 		eventBus.addHandler(ZozoEvent.TYPE, new ZozoEventHandler() {
 
 			public void onZozoEvent(ZozoEvent event) {
-				display.loving().setValue(event.getMessage());
+				display.messageBox().setValue(event.getMessage());
 			}
 
 		});
@@ -107,7 +100,7 @@ public class ZozoPresenter extends BindedWidgetPresenter<ZozoPresenter.Display> 
 	}
 
 	protected void doSend() {
-		dispatcher.execute(new ZozoAction(display.loving().getValue()),
+		dispatcher.execute(new ZozoAction(display.messageBox().getValue()),
 				new DisplayCallback<ZozoResult>(display) {
 
 					@Override

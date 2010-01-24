@@ -16,6 +16,7 @@ public class SecurityStatusView extends Composite implements
 
 	private TextBox status;
 	private Button logout;
+	private Button login;
 	private ListBox authorities;
 
 	public SecurityStatusView() {
@@ -24,6 +25,7 @@ public class SecurityStatusView extends Composite implements
 		this.status = new TextBox();
 		status.setText("Not logued");
 		this.logout = new Button("Logout");
+		this.login = new Button("login");
 		this.authorities = new ListBox();
 		
 
@@ -35,8 +37,11 @@ public class SecurityStatusView extends Composite implements
 
 	}
 
-	public HasClickHandlers getLogout() {
-		// TODO Auto-generated method stub
+
+	
+
+	
+	public HasClickHandlers getLogInOut() {
 		return logout;
 	}
 
@@ -61,7 +66,12 @@ public class SecurityStatusView extends Composite implements
 	}
 
 	public void setEnabled(boolean b) {
-		logout.setEnabled(b);
+		if(b){
+			logout.setText("logout");
+		}else{
+			logout.setText("login");
+		}
+		
 
 	}
 

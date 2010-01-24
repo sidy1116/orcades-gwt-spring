@@ -9,6 +9,7 @@ import net.customware.gwt.presenter.client.place.Place;
 import net.customware.gwt.presenter.client.place.PlaceRequest;
 import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 import net.orcades.gwt.inject.spring.client.mvp.BindedWidgetPresenter;
+import net.orcades.gwt.spring.dispatch.security.shared.event.AuthorizationRequiredEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEventEventHandler;
 import net.orcades.gwt.spring.dispatch.security.shared.event.LogoutEvent;
@@ -34,6 +35,8 @@ public class SecurityStatusPresenter extends
 	@Inject
 	private SpringSecurityHTMLIDs htmlID;
 
+	private boolean authenticated;
+
 	@Inject
 	public SecurityStatusPresenter(Display display, EventBus eventBus) {
 		super(display, eventBus);
@@ -43,7 +46,7 @@ public class SecurityStatusPresenter extends
 
 		public HasValue<String> getStatus();
 
-		public HasClickHandlers getLogout();
+		public HasClickHandlers getLogInOut();
 
 		public void setEnabled(boolean b);
 
@@ -61,7 +64,7 @@ public class SecurityStatusPresenter extends
 		RootPanel.get(htmlID.getId()).add(display.asWidget());
 
 		display.setEnabled(false);
-		
+
 		// Tries to retrieve the current authoritie (reload?)
 		dispatch.execute(new GetAuthoritiesAction(),
 				new DisplayCallback<GetAuthoritiesResult>(display) {
@@ -78,27 +81,31 @@ public class SecurityStatusPresenter extends
 					}
 				});
 
-		
-
-		display.getLogout().addClickHandler(new ClickHandler() {
+		display.getLogInOut().addClickHandler(new ClickHandler() {
 
 			public void onClick(ClickEvent arg0) {
-				dispatch.execute(new LogoutAction(),
-						new DisplayCallback<LogoutResult>(display) {
+				if (authenticated) {
 
-							@Override
-							protected void handleFailure(Throwable e) {
-								// TODO Auto-generated method stub
+					dispatch.execute(new LogoutAction(),
+							new DisplayCallback<LogoutResult>(display) {
 
-							}
+								@Override
+								protected void handleFailure(Throwable e) {
+									// TODO Auto-generated method stub
 
-							@Override
-							protected void handleSuccess(LogoutResult value) {
-								eventBus
-										.fireEvent(new LogoutEvent("logged out"));
+								}
 
-							}
-						});
+								@Override
+								protected void handleSuccess(LogoutResult value) {
+									eventBus.fireEvent(new LogoutEvent(
+											"logged out"));
+
+								}
+							});
+				} else {
+					eventBus.fireEvent(new AuthorizationRequiredEvent(
+							"Login please"));
+				}
 
 			}
 		});
@@ -108,12 +115,13 @@ public class SecurityStatusPresenter extends
 
 					public void onAuthoritiesGranted(
 							AutoritiesGrantedEvent autoritiesGrantedEvent) {
-
+						
 						ArrayList<String> auths = autoritiesGrantedEvent
 								.getAuthorities();
 						display.setAuthorities(auths);
 						if (auths.size() > 0) {
 							display.setEnabled(true);
+							authenticated = true;
 						}
 					}
 				});
@@ -124,6 +132,7 @@ public class SecurityStatusPresenter extends
 				display.setEnabled(false);
 				display.getStatus().setValue(logoutEvent.getMessage());
 				display.setAuthorities(null);
+				authenticated = false;
 			}
 		});
 
