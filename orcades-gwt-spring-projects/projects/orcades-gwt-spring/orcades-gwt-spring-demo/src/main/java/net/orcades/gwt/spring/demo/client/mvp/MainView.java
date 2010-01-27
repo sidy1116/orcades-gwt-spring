@@ -39,7 +39,7 @@ public class MainView extends Composite implements MainPresenter.Display {
 		panel.add(buttonSend);
 		
 		panel.add(showList);
-		panel.add(myUI);
+		//panel.add(myUI);
 	}
 	
 	

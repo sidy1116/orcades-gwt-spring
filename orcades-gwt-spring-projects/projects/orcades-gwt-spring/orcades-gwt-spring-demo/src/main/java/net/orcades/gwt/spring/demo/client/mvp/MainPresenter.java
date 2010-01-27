@@ -19,6 +19,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -77,7 +78,9 @@ public class MainPresenter extends BindedWidgetPresenter<MainPresenter.Display> 
 			
 				ListView listView = listViewProvider.get();
 				EventBus eventBus = listView.getEventBus();
-				Window.alert(eventBus.toString());
+				listView.init();
+				RootPanel.get("zozoCompositeContainer").add(new Label("IIII"));
+				RootPanel.get("zozoCompositeContainer").add(listView);
 			}
 		});
 
