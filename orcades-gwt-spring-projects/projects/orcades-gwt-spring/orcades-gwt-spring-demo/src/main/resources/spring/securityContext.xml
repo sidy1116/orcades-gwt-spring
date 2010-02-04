@@ -14,6 +14,12 @@
 	<import
 		resource="classpath:META-INF/net/orcades/gwt/spring/dispatch/security/gwt-spring-dispatch-secured.xml" />
 	
+	
+	<sec:http>
+	 <sec:intercept-url pattern="*.gwtrpc" filters="none"/>
+	 <sec:form-login />
+	</sec:http>
+	
 	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider >
 			<sec:user-service id="userDetailsService">

@@ -90,11 +90,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>net.customware.gwt.presenter</groupId>
-			<artifactId>gwt-presenter</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

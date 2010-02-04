@@ -8,6 +8,7 @@ import net.customware.gwt.dispatch.shared.ActionException;
 import net.orcades.gwt.spring.dispatch.security.shared.rpc.GetAuthoritiesAction;
 import net.orcades.gwt.spring.dispatch.security.shared.rpc.GetAuthoritiesResult;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,13 +18,22 @@ import org.springframework.stereotype.Component;
 public class GetAuthoritiesHandler implements
 		ActionHandler<GetAuthoritiesAction, GetAuthoritiesResult> {
 
+	/**
+	 * Log4j logger.
+	 */
+	private static final Logger LOGGER = Logger
+			.getLogger(GetAuthoritiesHandler.class);
+
 	public GetAuthoritiesResult execute(GetAuthoritiesAction action,
 			ExecutionContext context) throws ActionException {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 
 		ArrayList<String> roles = new ArrayList<String>();
-		if (auth != null) {
+
+		if (auth == null) {
+			LOGGER.debug("No authentication found");
+		} else {
 			for (GrantedAuthority authority : auth.getAuthorities()) {
 				roles.add(authority.getAuthority());
 			}
