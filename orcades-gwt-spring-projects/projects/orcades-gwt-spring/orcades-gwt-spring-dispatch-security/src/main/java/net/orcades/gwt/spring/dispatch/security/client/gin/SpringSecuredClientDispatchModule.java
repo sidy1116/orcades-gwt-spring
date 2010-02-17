@@ -5,10 +5,10 @@ import net.customware.gwt.presenter.client.DefaultEventBus;
 import net.customware.gwt.presenter.client.EventBus;
 import net.customware.gwt.presenter.client.gin.AbstractPresenterModule;
 import net.orcades.gwt.spring.dispatch.security.client.DefaultSpringSecuredDispatchAsync;
-import net.orcades.gwt.spring.dispatch.security.client.mvp.LoginPanelPresenter;
-import net.orcades.gwt.spring.dispatch.security.client.mvp.LoginPanelView;
-import net.orcades.gwt.spring.dispatch.security.client.mvp.SecurityStatusPresenter;
-import net.orcades.gwt.spring.dispatch.security.client.mvp.SecurityStatusView;
+import net.orcades.gwt.spring.dispatch.security.client.login.LoginPanelPresenter;
+import net.orcades.gwt.spring.dispatch.security.client.login.LoginPanelView;
+import net.orcades.gwt.spring.dispatch.security.client.status.SecurityStatusPresenter;
+import net.orcades.gwt.spring.dispatch.security.client.status.SecurityStatusView;
 
 import com.google.gwt.inject.client.Ginjector;
 import com.google.inject.Singleton;

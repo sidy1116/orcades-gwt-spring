@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import net.customware.gwt.dispatch.server.ActionHandler;
 import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.ActionException;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LoginAction;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LoginResult;
+import net.orcades.gwt.spring.dispatch.security.shared.login.LoginAction;
+import net.orcades.gwt.spring.dispatch.security.shared.login.LoginResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,5 +1,7 @@
 package net.orcades.gwt.spring.dispatch.security.server.component;
 
+import java.util.List;
+
 import net.customware.gwt.dispatch.server.Dispatch;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.ActionException;
@@ -24,6 +26,9 @@ public class SpringSecuredDispatchService implements
 	private final Dispatch dispatch;
 
 	@Autowired
+	private GetAuthoritiesHandler getAuthoritiesHandler;
+	
+	@Autowired
 	public SpringSecuredDispatchService(Dispatch dispatch) {
 		this.dispatch = dispatch;
 	}
@@ -37,8 +42,15 @@ public class SpringSecuredDispatchService implements
 		try {
 			return dispatch.execute(action);
 		} catch (AccessDeniedException accessDeniedException) {
-			throw new GWTAccessDeniedException(accessDeniedException
-					.getMessage());
+			List<String> roles = getAuthoritiesHandler.getRoles();
+
+			if(roles.size() > 0 ) {
+				throw new GWTAccessDeniedException(accessDeniedException
+						.getMessage());	
+			}else {
+				throw new GWTAuthorizationRequiredException("Auth required");
+			}
+			
 		} catch (AuthenticationCredentialsNotFoundException authenticationCredentialsNotFoundException) {
 			
 			throw new GWTAuthorizationRequiredException("Auth required");

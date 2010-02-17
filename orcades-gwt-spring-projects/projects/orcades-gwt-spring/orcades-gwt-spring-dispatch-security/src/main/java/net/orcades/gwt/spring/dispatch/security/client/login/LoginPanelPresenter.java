@@ -1,4 +1,4 @@
-package net.orcades.gwt.spring.dispatch.security.client.mvp;
+package net.orcades.gwt.spring.dispatch.security.client.login;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 import net.customware.gwt.dispatch.shared.Action;
@@ -15,8 +15,8 @@ import net.orcades.gwt.spring.dispatch.security.shared.event.AuthorizationRequir
 import net.orcades.gwt.spring.dispatch.security.shared.event.AuthorizationRequiredEventEventHandler;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEventEventHandler;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LoginAction;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LoginResult;
+import net.orcades.gwt.spring.dispatch.security.shared.login.LoginAction;
+import net.orcades.gwt.spring.dispatch.security.shared.login.LoginResult;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

@@ -26,18 +26,8 @@ public class GetAuthoritiesHandler implements
 
 	public GetAuthoritiesResult execute(GetAuthoritiesAction action,
 			ExecutionContext context) throws ActionException {
-		Authentication auth = SecurityContextHolder.getContext()
-				.getAuthentication();
 
-		ArrayList<String> roles = new ArrayList<String>();
-
-		if (auth == null) {
-			LOGGER.debug("No authentication found");
-		} else {
-			for (GrantedAuthority authority : auth.getAuthorities()) {
-				roles.add(authority.getAuthority());
-			}
-		}
+		ArrayList<String> roles = getRoles();
 
 		return new GetAuthoritiesResult(roles);
 	}
@@ -51,6 +41,27 @@ public class GetAuthoritiesHandler implements
 			throws ActionException {
 		// TODO Auto-generated method stub
 
+	}
+
+	public ArrayList<String> getRoles() {
+		ArrayList<String> roles = new ArrayList<String>();
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+
+		if (auth == null) {
+			LOGGER.debug("No authentication found");
+		} else {
+			for (GrantedAuthority authority : auth.getAuthorities()) {
+				if ("ROLE_ANONYMOUS".equals(authority.getAuthority())) {
+					// FIXME should not be hard code...
+					LOGGER.debug("ROLE_ANONYMOUS ignored");
+				} else {
+					roles.add(authority.getAuthority());
+				}
+			}
+		}
+		return roles;
 	}
 
 }

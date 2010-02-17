@@ -21,18 +21,27 @@ import com.google.gwt.user.server.rpc.RPCServletUtils;
 import com.google.gwt.user.server.rpc.SerializationPolicy;
 import com.google.gwt.user.server.rpc.SerializationPolicyLoader;
 import com.google.gwt.user.server.rpc.SerializationPolicyProvider;
+
 /**
  * 
  * Helper to decode GWT Payload and provide {@link SerializationPolicy}. <br />
  * Cut && Paste from google GWT code.
+ * 
  * @author olivier.nouguier@gmail.com
- *
+ * 
  */
 @Component
 public class GWTPayloadHelper implements SerializationPolicyProvider {
 
+	/**
+	 * {@link ThreadLocal} for {@link HttpServletRequest}.
+	 */
+
 	private final ThreadLocal<HttpServletRequest> perThreadRequest = new ThreadLocal<HttpServletRequest>();
 
+	/**
+	 * {@link ThreadLocal} form {@link HttpServletResponse}.
+	 */
 	private final ThreadLocal<HttpServletResponse> perThreadResponse = new ThreadLocal<HttpServletResponse>();
 
 	/**
@@ -41,20 +50,39 @@ public class GWTPayloadHelper implements SerializationPolicyProvider {
 	 */
 	private final Map<String, SerializationPolicy> serializationPolicyCache = new HashMap<String, SerializationPolicy>();
 
+	/**
+	 * ThreadLocal cache in.
+	 * 
+	 * @param request
+	 *            to put in cache.
+	 * @param response
+	 *            to put in cache.
+	 */
 	public void begin(HttpServletRequest request, HttpServletResponse response) {
 		perThreadRequest.set(request);
 		perThreadResponse.set(response);
 	}
 
+	/**
+	 * {@link ThreadLocal} cache clean.
+	 */
 	public void end() {
 		perThreadRequest.set(null);
 		perThreadResponse.set(null);
 
 	}
 
+	/**
+	 * Getter for {@link SerializationPolicy}.
+	 * 
+	 * @param moduleBaseURL
+	 *            "search"
+	 * @param strongName
+	 *            "SKJSKJSJKSKJ18771878"
+	 * @return the current {@link SerializationPolicy}
+	 */
 	public final SerializationPolicy getSerializationPolicy(
 			String moduleBaseURL, String strongName) {
-
 
 		SerializationPolicy serializationPolicy = getCachedSerializationPolicy(
 				moduleBaseURL, strongName);
@@ -73,7 +101,8 @@ public class GWTPayloadHelper implements SerializationPolicyProvider {
 									+ strongName
 									+ "' for module '"
 									+ moduleBaseURL
-									+ "'; a legacy, 1.3.3 compatible, serialization policy will be used.  You may experience SerializationExceptions as a result.");
+									+ "'; a legacy, 1.3.3 compatible, serialization policy will be used."
+									+ "  You may experience SerializationExceptions as a result.");
 			serializationPolicy = RPC.getDefaultSerializationPolicy();
 		}
 
@@ -85,12 +114,16 @@ public class GWTPayloadHelper implements SerializationPolicyProvider {
 		return serializationPolicy;
 	}
 
+	/**
+	 * Convenience method to retrieve the {@link ServletContext} from the
+	 * {@link ThreadLocal}.
+	 * 
+	 * @return the {@link ServletContext}
+	 */
 	private ServletContext getServletContext() {
 
 		return getThreadLocalRequest().getSession().getServletContext();
 	}
-
-	
 
 	/**
 	 * Gets the {@link SerializationPolicy} for given module base URL and strong
@@ -154,32 +187,7 @@ public class GWTPayloadHelper implements SerializationPolicyProvider {
 			// Open the RPC resource file read its contents.
 			InputStream is = getServletContext().getResourceAsStream(
 					serializationPolicyFilePath);
-			if (is == null) {
-				//
-				// FIXME in hosted mode, the serialization cannot be resolved
-				// I have to send a request to the shell servlet with uses
-				// ServletContextProxy which is able to resolve the serialization
-				// policies.
-				//
-				StringBuffer buffer = new StringBuffer(request.getScheme());
-				buffer.append("://").append(request.getServerName());
-				if (request.getServerPort() != 80) {
-					buffer.append(':').append(request.getServerPort());
-				}
-				buffer.append(request.getContextPath());
-				buffer.append(serializationPolicyFilePath);
-				try {
-					URL url = new URL(buffer.toString());
-					is = url.openStream();
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
+			
 
 			try {
 				if (is != null) {
@@ -219,14 +227,16 @@ public class GWTPayloadHelper implements SerializationPolicyProvider {
 	 * Override this method to control what should happen when an exception
 	 * escapes the {@link #processCall(String)} method. The default
 	 * implementation will log the failure and send a generic failure response
-	 * to the client. <p/>
+	 * to the client.
+	 * <p/>
 	 * 
 	 * An "expected failure" is an exception thrown by a service method that is
 	 * declared in the signature of the service method. These exceptions are
 	 * serialized back to the client, and are not passed to this method. This
 	 * method is called only for exceptions or errors that are not part of the
 	 * service method's signature, or that result from SecurityExceptions,
-	 * SerializationExceptions, or other failures within the RPC framework. <p/>
+	 * SerializationExceptions, or other failures within the RPC framework.
+	 * <p/>
 	 * 
 	 * Note that if the desired behavior is to both send the GENERIC_FAILURE_MSG
 	 * response AND to rethrow the exception, then this method should first send

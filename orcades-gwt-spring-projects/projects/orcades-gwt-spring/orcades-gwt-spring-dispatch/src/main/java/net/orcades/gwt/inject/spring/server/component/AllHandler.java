@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AllHandler {
 
-	@Autowired
+	@Autowired(required=false)
 	List<ActionHandler<? extends Action<? extends Result>, ? extends Result>> handlers;
 
 //	@Autowired

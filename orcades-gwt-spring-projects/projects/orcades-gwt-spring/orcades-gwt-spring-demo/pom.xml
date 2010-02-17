@@ -14,14 +14,6 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<properties>
-
-		<!-- convenience to define GWT version in one place -->
-		<gwt.version>2.0.0</gwt.version>
-
-		<!--  tell the compiler we can use 1.5 -->
-
-	</properties>
 
 
 	<build>

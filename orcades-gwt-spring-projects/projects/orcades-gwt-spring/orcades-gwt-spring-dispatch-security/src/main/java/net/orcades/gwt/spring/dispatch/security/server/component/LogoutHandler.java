@@ -5,8 +5,8 @@ import java.util.List;
 import net.customware.gwt.dispatch.server.ActionHandler;
 import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.ActionException;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LogoutAction;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LogoutResult;
+import net.orcades.gwt.spring.dispatch.security.shared.logout.LogoutAction;
+import net.orcades.gwt.spring.dispatch.security.shared.logout.LogoutResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

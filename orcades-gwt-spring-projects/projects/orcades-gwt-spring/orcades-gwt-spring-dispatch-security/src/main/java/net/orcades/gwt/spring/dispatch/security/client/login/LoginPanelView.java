@@ -1,4 +1,4 @@
-package net.orcades.gwt.spring.dispatch.security.client.mvp;
+package net.orcades.gwt.spring.dispatch.security.client.login;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.FlexTable;

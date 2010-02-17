@@ -1,4 +1,4 @@
-package net.orcades.gwt.spring.dispatch.security.client.mvp;
+package net.orcades.gwt.spring.dispatch.security.client.status;
 
 import java.util.ArrayList;
 
@@ -9,15 +9,16 @@ import net.customware.gwt.presenter.client.place.Place;
 import net.customware.gwt.presenter.client.place.PlaceRequest;
 import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 import net.orcades.gwt.inject.spring.client.mvp.BindedWidgetPresenter;
+import net.orcades.gwt.spring.dispatch.security.client.SpringSecurityConfiguration;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AuthorizationRequiredEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.AutoritiesGrantedEventEventHandler;
 import net.orcades.gwt.spring.dispatch.security.shared.event.LogoutEvent;
 import net.orcades.gwt.spring.dispatch.security.shared.event.LogoutEventHandler;
+import net.orcades.gwt.spring.dispatch.security.shared.logout.LogoutAction;
+import net.orcades.gwt.spring.dispatch.security.shared.logout.LogoutResult;
 import net.orcades.gwt.spring.dispatch.security.shared.rpc.GetAuthoritiesAction;
 import net.orcades.gwt.spring.dispatch.security.shared.rpc.GetAuthoritiesResult;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LogoutAction;
-import net.orcades.gwt.spring.dispatch.security.shared.rpc.LogoutResult;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -33,7 +34,7 @@ public class SecurityStatusPresenter extends
 	private DispatchAsync dispatch;
 
 	@Inject
-	private SpringSecurityHTMLIDs htmlID;
+	private SpringSecurityConfiguration loginStatusConfiguration;
 
 	private boolean authenticated;
 
@@ -51,6 +52,8 @@ public class SecurityStatusPresenter extends
 		public void setEnabled(boolean b);
 
 		public void setAuthorities(ArrayList<String> auths);
+		
+		public void setRoleVisible(boolean b);
 	}
 
 	@Override
@@ -61,10 +64,12 @@ public class SecurityStatusPresenter extends
 
 	@Override
 	protected void onBind() {
-		RootPanel.get(htmlID.getId()).add(display.asWidget());
+		RootPanel.get(loginStatusConfiguration.getId()).add(display.asWidget());
 
 		display.setEnabled(false);
 
+		display.setRoleVisible(loginStatusConfiguration.isShowRoles());
+		
 		// Tries to retrieve the current authoritie (reload?)
 		dispatch.execute(new GetAuthoritiesAction(),
 				new DisplayCallback<GetAuthoritiesResult>(display) {
@@ -122,6 +127,7 @@ public class SecurityStatusPresenter extends
 						if (auths.size() > 0) {
 							display.setEnabled(true);
 							authenticated = true;
+							display.getStatus().setValue("Logged in");
 						}
 					}
 				});

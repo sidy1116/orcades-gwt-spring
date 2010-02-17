@@ -1,4 +1,4 @@
-package net.orcades.gwt.spring.dispatch.security.shared.rpc;
+package net.orcades.gwt.spring.dispatch.security.shared.login;
 
 import java.util.ArrayList;
 

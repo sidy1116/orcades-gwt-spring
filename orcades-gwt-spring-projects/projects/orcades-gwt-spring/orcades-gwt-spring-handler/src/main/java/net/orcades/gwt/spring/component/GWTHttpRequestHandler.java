@@ -39,6 +39,9 @@ public class GWTHttpRequestHandler implements HttpRequestHandler,
 		ApplicationContextAware {
 
 
+	/**
+	 * Logger.
+	 */
 	public static final Logger LOGGER = Logger
 			.getLogger(GWTHttpRequestHandler.class);
 

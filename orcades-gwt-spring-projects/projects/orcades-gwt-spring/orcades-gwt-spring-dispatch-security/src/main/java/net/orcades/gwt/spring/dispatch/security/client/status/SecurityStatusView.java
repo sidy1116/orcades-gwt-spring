@@ -1,6 +1,8 @@
-package net.orcades.gwt.spring.dispatch.security.client.mvp;
+package net.orcades.gwt.spring.dispatch.security.client.status;
 
 import java.util.ArrayList;
+
+import net.orcades.gwt.spring.dispatch.security.client.status.SecurityStatusPresenter.Display;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.Button;
@@ -16,7 +18,7 @@ public class SecurityStatusView extends Composite implements
 
 	private TextBox status;
 	private Button logout;
-	private Button login;
+	
 	private ListBox authorities;
 
 	public SecurityStatusView() {
@@ -25,7 +27,7 @@ public class SecurityStatusView extends Composite implements
 		this.status = new TextBox();
 		status.setText("Not logued");
 		this.logout = new Button("Logout");
-		this.login = new Button("login");
+		
 		this.authorities = new ListBox();
 		
 
@@ -76,6 +78,7 @@ public class SecurityStatusView extends Composite implements
 	}
 
 	public void setAuthorities(ArrayList<String> auths) {
+		
 		authorities.clear();
 		if (auths != null) {
 			for (String auth : auths) {
@@ -87,6 +90,15 @@ public class SecurityStatusView extends Composite implements
 		}
 		
 
+	}
+
+
+
+
+
+	public void setRoleVisible(boolean b) {
+		authorities.setVisible(b);
+		
 	}
 
 }

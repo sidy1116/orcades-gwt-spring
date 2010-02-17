@@ -11,7 +11,8 @@ import net.orcades.gwt.inject.spring.shared.event.ApplicationStartEventHandler;
 
 /**
  * This abstract {@link Presenter} register a handler to call
- * {@link BindedWidgetPresenter#bind()} when application starts {@link ApplicationStartEvent}.
+ * {@link BindedWidgetPresenter#bind()} when application starts
+ * {@link ApplicationStartEvent}.
  * 
  * @author manwe
  * 
