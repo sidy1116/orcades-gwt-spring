@@ -5,7 +5,7 @@
 Thanks to maven, it's not a big issue ...
 There a are just some dependencies to provide, because some project are not available yet in public/central repositories:
 
- * gin
+ 
  * gwt-dispatch
  * gwt-presenter
 
